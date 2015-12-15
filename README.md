@@ -4,16 +4,17 @@
 [![Coverage Status](https://img.shields.io/coveralls/kazupon/vue-i18n.svg)](https://coveralls.io/r/kazupon/vue-i18n?branch=master)
 [![NPM version](https://badge.fury.io/js/vue-i18n.svg)](http://badge.fury.io/js/vue-i18n)
 [![Sauce Test Status](https://saucelabs.com/buildstatus/vue-i18n)](https://saucelabs.com/u/vue-i18n)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 
 Internationalization plugin of Vue.js
 
 
 # Requirements
-- works with Vue.js ^`0.12.0`
+- works with Vue.js `0.12.0`+
 
 
-# Instllation
+# Installation
 
 ## npm
 
@@ -21,19 +22,14 @@ Internationalization plugin of Vue.js
 $ npm install vue-i18n
 ```
 
-## bower
-
-```shell
-$ bower install vue-i18n
-```
-
-## duo
+When used in CommonJS, you must explicitly install the router via Vue.use():
 
 ```javascript
-var i18n = require('kazupon/vue-i18n')
+var Vue = require('vue')
+var VueI18n = require('vue-i18n')
 
+Vue.use(VueI18n, { ... })
 ```
-
 
 # Usage
 
@@ -164,7 +160,7 @@ Translate the locale of `keypath`. If you specified `lang`, translate the locale
 ```javascript
 Vue.use(plugin, {
   lang: 'en',
-  locals: {
+  locales: {
     en: {
       ...
     },
@@ -181,16 +177,16 @@ Specify translate the language code.
 
 If you abbreviated the `lang` option, translate as well as 'en' language code option (default: 'en').
 
-### locals
+### locales
 Specify translate some local dictionary.
 
 If you abbreviated the `locales` option, set the empty local dictionary.
 
 
-# Configrations
+# Configuration
 
 ## Vue.config.lang
-Get or set a global translation language code. Default by `en` string value. You can change the language of the global level dynamic translation in your application. 
+Get or set a global translation language code. Default by `en` string value. You can change the language of the global level dynamic translation in your application.
 
 When specified with `lang` plugins option at `Vue.use`, `Vue.config.lang` is set that value.
 
